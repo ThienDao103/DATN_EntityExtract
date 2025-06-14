@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Extractor & Recommendation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 20px;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #1a252f;
+    }
+
+    .result-block {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-top: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Product Extractor & Recommendation</h2>
+  <form method="post">
+
+    <!-- Extraction Section -->
+    <label for="description">Enter product description:</label>
+    <textarea id="description" name="description" rows="4" placeholder="e.g. The table is made of wood, weighs 10 kg and has dimensions 120 cm x 60 cm with brown color" required>{{ request.form.description or '' }}</textarea>
+    <button type="submit" name="desc_submit">Extract</button>
+
+    {% if extracted %}
+      <div class="result-block">
+        <h4>Extracted Attributes:</h4>
+        <ul>
+          {% for key, val in extracted.items() %}
+            <li><b>{{ key.capitalize() }}:</b> {{ val }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <!-- Recommendation Section -->
+    <h2>Product Recommendations</h2>
+
+    <label for="rec_description">Description (optional):</label>
+    <textarea id="rec_description" name="rec_description" rows="2" placeholder="Enter description to auto-extract attributes">{{ request.form.rec_description or '' }}</textarea>
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" placeholder="e.g. red" value="{{ request.form.color or '' }}">
+
+    <label for="material">Material:</label>
+    <input type="text" id="material" name="material" placeholder="e.g. cotton" value="{{ request.form.material or '' }}">
+
+    <label for="dimensions">Dimensions:</label>
+    <input type="text" id="dimensions" name="dimensions" placeholder="e.g. 120 cm x 60 cm" value="{{ request.form.dimensions or '' }}">
+
+    <label for="weight">Weight:</label>
+    <input type="text" id="weight" name="weight" placeholder="e.g. 10 kg" value="{{ request.form.weight or '' }}">
+
+    <button type="submit" name="rec_submit">Recommend</button>
+  </form>
+
+  {% if recommendations %}
+    <div class="result-block">
+      <h4>Recommended Products:</h4>
+      <ul>
+        {% for rec in recommendations %}
+          <li>
+            <b>{{ rec.description }}</b><br>
+            <small>
+              Color: {{ rec.color or 'N/A' }} |
+              Material: {{ rec.material or 'N/A' }} |
+              Dimensions: {{ rec.dimensions or 'N/A' }} |
+              Weight: {{ rec.weight or 'N/A' }} |
+              <span style="color: {% if rec.similarity > 0.8 %}green{% else %}red{% endif %};">
+                Similarity: {{ "%.2f"|format(rec.similarity) }}
+              </span>
+            </small>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if message %}
+    <div style="background-color: #ffe0e0; padding: 12px; margin-top: 20px; border: 1px solid #ffaaaa; border-radius: 6px; color: #990000;">
+      {{ message }}
+    </div>
+  {% endif %}
+
+</body>
+</html>
