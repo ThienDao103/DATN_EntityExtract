@@ -1,6 +1,6 @@
 # EntityExtract
 
-Đồ án tốt nghiệp của **Dao Ngoc Binh Thien**, Trường Đại học Đại Nam: sử dụng BERT cho bài toán phân loại token để trích xuất **màu sắc (Color), vật liệu (Material), kích thước (Dimensions) và khối lượng (Weight)** từ mô tả sản phẩm thương mại điện tử bằng tiếng Anh. Dự án có ứng dụng minh họa bằng Flask và chức năng gợi ý sản phẩm theo thuộc tính.
+Đồ án tốt nghiệp của **Đào Ngọc Bình Thiên**, Trường Đại học Đại Nam: sử dụng BERT cho bài toán phân loại token để trích xuất **màu sắc (Color), vật liệu (Material), kích thước (Dimensions) và khối lượng (Weight)** từ mô tả sản phẩm thương mại điện tử bằng tiếng Anh. Dự án có ứng dụng minh họa bằng Flask và chức năng gợi ý sản phẩm theo thuộc tính.
 
 Đồ án gốc được thực hiện năm 2025. Phần bổ sung kỹ thuật và kiểm chứng khả năng tái lập được thực hiện ngày 12/10/2026. Notebook, các bộ dữ liệu và checkpoint gốc được giữ nguyên; các phần bổ sung được trình bày trong [báo cáo kỹ thuật](docs/THESIS_TECHNICAL_REPORT.md).
 
