@@ -1,0 +1,84 @@
+{
+  "extract": {
+    "request": {
+      "description": "This shirt is 30 mm x 50 mm with red color and weight 2 kg."
+    },
+    "status": 200,
+    "cold_request_seconds": 6.560308000000077,
+    "response": {
+      "attributes": {
+        "color": "red",
+        "dimensions": "30 mm x 50 mm",
+        "weight": "2 kg."
+      },
+      "entities": [
+        {
+          "confidence": 0.9878322601318359,
+          "end": 27,
+          "label": "Dimensions",
+          "start": 14,
+          "text": "30 mm x 50 mm"
+        },
+        {
+          "confidence": 0.9913944602012634,
+          "end": 36,
+          "label": "Color",
+          "start": 33,
+          "text": "red"
+        },
+        {
+          "confidence": 0.9992483456929525,
+          "end": 59,
+          "label": "Weight",
+          "start": 54,
+          "text": "2 kg."
+        }
+      ],
+      "model": "bert",
+      "processed_characters": 59,
+      "windows": 1
+    }
+  },
+  "recommend": {
+    "request": {
+      "attributes": {
+        "color": "black"
+      },
+      "top_k": 3
+    },
+    "status": 200,
+    "cold_request_seconds": 0.6586667999999918,
+    "response": {
+      "attributes": {
+        "color": "black"
+      },
+      "recommendations": [
+        {
+          "color": "black",
+          "description": "Wrangler Skanders Fit Men's Jeans - Buy Brushed Black Wrangler Skanders Fit Men's Jeans For Only Rs. 2795 Online in India. Shop Online For Apparels. Huge Collection of Branded Clothes Only at Flipkart.com",
+          "dimensions": "",
+          "material": "",
+          "similarity": 1.0,
+          "weight": ""
+        },
+        {
+          "color": "black",
+          "description": "Van Heusen Men's Printed Party Shirt - Buy Black Van Heusen Men's Printed Party Shirt For Only Rs. 2099 Online in India. Shop Online For Apparels. Huge Collection of Branded Clothes Only at Flipkart.com",
+          "dimensions": "",
+          "material": "",
+          "similarity": 1.0,
+          "weight": ""
+        },
+        {
+          "color": "black",
+          "description": "Aaliya Casual Sleeveless Embellished Women's Top - Buy Black Aaliya Casual Sleeveless Embellished Women's Top For Only Rs. 2000 Online in India. Shop Online For Apparels. Huge Collection of Branded Clothes Only at Flipkart.com",
+          "dimensions": "",
+          "material": "",
+          "similarity": 1.0,
+          "weight": ""
+        }
+      ]
+    }
+  },
+  "note": "Cold requests include initialization; not a load test, SLA or calibrated accuracy benchmark."
+}

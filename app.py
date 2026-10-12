@@ -1,121 +1,83 @@
-from flask import Flask, render_template, request
-import pandas as pd
-from transformers import BertTokenizerFast, BertForTokenClassification
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.metrics.pairwise import cosine_similarity
+"""Flask UI and JSON endpoints; paths are independent of the working directory."""
+import logging
+import os
+from pathlib import Path
+from threading import Lock
+from flask import Flask,jsonify,render_template,request
+from entityextract.inference import EntityExtractor
+from entityextract.recommendation import ProductRecommender
+ROOT=Path(__file__).resolve().parent
 
-# Load model
-model_path = r"C:\Users\Admin\Desktop\ĐH\DATN\bert_7_2\bert_product_model"
-model = BertForTokenClassification.from_pretrained(model_path, trust_remote_code=True)
-tokenizer = BertTokenizerFast.from_pretrained(model_path)
+def create_app(config=None,extractor=None,recommender=None):
+    app=Flask(__name__)
+    app.config.update(MODEL_DIR=os.getenv("ENTITYEXTRACT_MODEL_DIR",str(ROOT/"bert_product_model")),CATALOG_PATH=os.getenv("ENTITYEXTRACT_CATALOG_PATH",str(ROOT/"products_labeled.csv")),DEVICE=os.getenv("ENTITYEXTRACT_DEVICE","cpu"),MAX_CONTENT_LENGTH=100_000,MAX_DESCRIPTION_LENGTH=20_000)
+    if config: app.config.update(config)
+    app.extensions.update(extractor=extractor,recommender=recommender); loading=Lock()
+    def services(model=False,catalog=False):
+        with loading:
+            if model and app.extensions["extractor"] is None: app.extensions["extractor"]=EntityExtractor(app.config["MODEL_DIR"],device=app.config["DEVICE"])
+            if catalog and app.extensions["recommender"] is None: app.extensions["recommender"]=ProductRecommender(app.config["CATALOG_PATH"])
+        return app.extensions["extractor"],app.extensions["recommender"]
+    def description(value,required=True):
+        if not isinstance(value,str): raise ValueError("description must be a string")
+        if required and not value.strip(): raise ValueError("Please enter a product description")
+        if len(value)>app.config["MAX_DESCRIPTION_LENGTH"]: raise ValueError("Description exceeds 20,000 characters")
+        return value.strip()
+    def recommend(payload):
+        attrs=payload.get("attributes",{})
+        if not isinstance(attrs,dict) or any(not isinstance(v,str) for v in attrs.values()): raise ValueError("attributes must be an object of strings")
+        if set(attrs)-{"color","material","dimensions","weight"}: raise ValueError("Unknown product attribute")
+        if any(len(v)>500 for v in attrs.values()): raise ValueError("Attribute value exceeds 500 characters")
+        text=description(payload.get("description",""),False); k=payload.get("top_k",5)
+        if isinstance(k,bool) or not isinstance(k,int) or not 1<=k<=20: raise ValueError("top_k must be an integer between 1 and 20")
+        if text:
+            extractor,_=services(model=True); extracted=extractor.extract(text)["attributes"]
+            attrs={key:attrs.get(key) or extracted.get(key,"") for key in ("color","material","dimensions","weight")}
+        if not any(v.strip() for v in attrs.values()): raise ValueError("Enter a description or at least one attribute")
+        _,recommender=services(catalog=True)
+        return attrs,recommender.recommend(attrs,k)
+    @app.get("/health")
+    def health():
+        return jsonify(status="ok",model_loaded=app.extensions["extractor"] is not None,catalog_loaded=app.extensions["recommender"] is not None)
+    @app.post("/api/extract")
+    def extract_api():
+        try:
+            payload=request.get_json(silent=True)
+            if not isinstance(payload,dict): raise ValueError("Request body must be a JSON object")
+            text=description(payload.get("description")); extractor,_=services(model=True)
+            return jsonify(extractor.extract(text))
+        except ValueError as exc: return jsonify(error=str(exc)),400
+        except (OSError,RuntimeError):
+            app.logger.exception("Model unavailable"); return jsonify(error="Model unavailable; check local configuration and server logs"),503
+    @app.post("/api/recommend")
+    def recommend_api():
+        try:
+            payload=request.get_json(silent=True)
+            if not isinstance(payload,dict): raise ValueError("Request body must be a JSON object")
+            attrs,results=recommend(payload); return jsonify(attributes=attrs,recommendations=results)
+        except ValueError as exc: return jsonify(error=str(exc)),400
+        except (OSError,RuntimeError):
+            app.logger.exception("Recommendation unavailable"); return jsonify(error="Recommendation unavailable; check configuration and server logs"),503
+    @app.errorhandler(413)
+    def too_large(error): return jsonify(error="Request is too large"),413
+    @app.route("/",methods=["GET","POST"])
+    def index():
+        extracted,recommendations,message={},[],""
+        if request.method=="POST":
+            try:
+                if "desc_submit" in request.form:
+                    text=description(request.form.get("description","")); extractor,_=services(model=True); extracted=extractor.extract(text)["attributes"]
+                elif "rec_submit" in request.form:
+                    extracted,recommendations=recommend({"description":request.form.get("rec_description",""),"attributes":{k:request.form.get(k,"") for k in ("color","material","dimensions","weight")}})
+                    if not recommendations: message="No matching products found. Try an attribute present in the catalog."
+                else: raise ValueError("Choose Extract or Recommend")
+            except ValueError as exc: message=str(exc)
+            except (OSError,RuntimeError):
+                app.logger.exception("Service unavailable"); message="Service unavailable. Check the model and catalog configuration."
+        return render_template("index.html",extracted=extracted,recommendations=recommendations,message=message,request=request)
+    return app
 
-# Label mapping
-id2label = {
-    0: 'B-Color', 1: 'B-Dimensions', 2: 'B-Material', 3: 'B-Weight',
-    4: 'I-Color', 5: 'I-Dimensions', 6: 'I-Material', 7: 'I-Weight', 8: 'O'
-}
-
-# Load product data
-df = pd.read_csv("products_labeled.csv")
-attr_cols = ["color", "material", "dimensions", "weight"]
-df[attr_cols] = df[attr_cols].fillna("")
-encoder = OneHotEncoder()
-attr_vectors = encoder.fit_transform(df[attr_cols]).toarray()
-
-# Extract attributes from description
-def predict_product_info(text):
-    tokens = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-    output = model(**tokens).logits
-    preds = output.argmax(-1)[0].tolist()
-    input_ids = tokens['input_ids'][0].tolist()
-    tokens_decoded = tokenizer.convert_ids_to_tokens(input_ids)
-
-    entities = {}
-    current_entity = ""
-    current_label = None
-
-    for token, pred in zip(tokens_decoded, preds):
-        label = id2label[pred]
-        if label == "O":
-            if current_label:
-                entities.setdefault(current_label, []).append(current_entity.strip())
-                current_entity, current_label = "", None
-            continue
-        tag, ent_type = label.split("-")
-        if tag == "B":
-            if current_label:
-                entities.setdefault(current_label, []).append(current_entity.strip())
-            current_entity = token.replace("##", "")
-            current_label = ent_type
-        elif tag == "I" and ent_type == current_label:
-            current_entity += " " + token.replace("##", "")
-    if current_entity and current_label:
-        entities.setdefault(current_label, []).append(current_entity.strip())
-    return {k.lower(): " ".join(v) for k, v in entities.items()}
-
-# Recommend similar products
-def recommend_from_attributes(color="", material="", dimensions="", weight="", top_k=5):
-    input_df = pd.DataFrame([[color, material, dimensions, weight]], columns=attr_cols)
-    try:
-        input_vector = encoder.transform(input_df).toarray()
-    except ValueError:
-        return pd.DataFrame()  # Trả về rỗng nếu không vector hóa được (vd: giá trị không tồn tại)
-    
-    sims = cosine_similarity(input_vector, attr_vectors)[0]
-    top_indices = sims.argsort()[::-1][:top_k]
-
-    result_df = df.iloc[top_indices][["description"] + attr_cols].copy()
-    result_df["similarity"] = sims[top_indices]
-    return result_df
-
-# Flask app
-app = Flask(__name__)
-
-@app.route("/", methods=["GET", "POST"])
-def index():
-    extracted = {}
-    recommendations = []
-    message = ""
-
-    if request.method == "POST":
-        if "desc_submit" in request.form:
-            desc = request.form.get("description", "").strip()
-            if not desc:
-                message = "Please enter a product description."
-            else:
-                extracted = predict_product_info(desc)
-
-        elif "rec_submit" in request.form:
-            rec_description = request.form.get("rec_description", "").strip()
-            color = request.form.get("color", "").strip()
-            material = request.form.get("material", "").strip()
-            dimensions = request.form.get("dimensions", "").strip()
-            weight = request.form.get("weight", "").strip()
-
-            if not any([rec_description, color, material, dimensions, weight]):
-                message = "Please enter at least one attribute."
-            else:
-                # Nếu có mô tả sản phẩm, trích xuất thuộc tính từ đó
-                if rec_description:
-                    extracted_attr = predict_product_info(rec_description)
-                    color = color or extracted_attr.get("color", "")
-                    material = material or extracted_attr.get("material", "")
-                    dimensions = dimensions or extracted_attr.get("dimensions", "")
-                    weight = weight or extracted_attr.get("weight", "")
-
-                rec_df = recommend_from_attributes(color, material, dimensions, weight)
-                if rec_df.empty:
-                    message = "No matching products found."
-                else:
-                    recommendations = rec_df.to_dict(orient="records")
-
-    return render_template(
-        "index.html",
-        extracted=extracted,
-        recommendations=recommendations,
-        message=message,
-        request=request  # giữ lại dữ liệu nhập trong form
-    )
-
-if __name__ == "__main__":
-    app.run(debug=True)
+app=create_app()
+if __name__=="__main__":
+    logging.basicConfig(level=logging.INFO)
+    app.run(host="127.0.0.1",port=int(os.getenv("PORT","5000")),debug=False)

@@ -1,0 +1,897 @@
+{
+  "date_utc": "2026-10-12T09:22:06.035428+00:00",
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cuda_available": false,
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "5.18.0",
+      "Flask": "3.1.1",
+      "pandas": "2.2.3",
+      "numpy": "2.2.4",
+      "scikit-learn": "1.6.1",
+      "matplotlib": "3.10.1",
+      "safetensors": "0.8.0",
+      "pytest": "8.4.2"
+    }
+  },
+  "raw_rows": 20000,
+  "missing_description": 2,
+  "duplicate_full_descriptions": 1807,
+  "catalog_rows": 20000,
+  "catalog_missing": {
+    "color": 3321,
+    "material": 8018,
+    "dimensions": 17789,
+    "weight": 10169
+  },
+  "legacy_labeled_sequences": 19994,
+  "legacy_tensor_rows": 19994,
+  "legacy_split_sizes": {
+    "train": 13995,
+    "validation": 2999,
+    "test": 3000
+  },
+  "legacy_sequence_overlap": {
+    "train_validation": 1,
+    "train_test": 2,
+    "validation_test": 2
+  },
+  "legacy_label_counts": {
+    "O": 276702,
+    "B-Color": 26692,
+    "I-Color": 2247,
+    "B-Weight": 5256,
+    "I-Weight": 5235,
+    "B-Material": 16294,
+    "B-Dimensions": 768,
+    "I-Dimensions": 1596,
+    "I-Material": 1980
+  },
+  "invalid_reference_I_tags": 9,
+  "label_map": {
+    "B-Color": 0,
+    "B-Dimensions": 1,
+    "B-Material": 2,
+    "B-Weight": 3,
+    "I-Color": 4,
+    "I-Dimensions": 5,
+    "I-Material": 6,
+    "I-Weight": 7,
+    "O": 8
+  },
+  "tokenizer_vocabulary_size": 30522,
+  "model_tensor_shapes": {
+    "bert.embeddings.LayerNorm.bias": [
+      768
+    ],
+    "bert.embeddings.LayerNorm.weight": [
+      768
+    ],
+    "bert.embeddings.position_embeddings.weight": [
+      512,
+      768
+    ],
+    "bert.embeddings.token_type_embeddings.weight": [
+      2,
+      768
+    ],
+    "bert.embeddings.word_embeddings.weight": [
+      30522,
+      768
+    ],
+    "bert.encoder.layer.0.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.0.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.0.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.0.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.0.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.0.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.0.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.0.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.0.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.0.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.1.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.1.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.1.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.1.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.1.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.1.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.1.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.1.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.1.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.1.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.10.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.10.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.10.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.10.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.10.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.10.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.10.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.10.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.10.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.10.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.11.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.11.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.11.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.11.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.11.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.11.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.11.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.11.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.11.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.2.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.2.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.2.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.2.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.2.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.2.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.2.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.2.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.2.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.2.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.3.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.3.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.3.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.3.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.3.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.3.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.3.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.3.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.3.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.3.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.4.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.4.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.4.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.4.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.4.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.4.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.4.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.4.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.4.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.4.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.5.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.5.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.5.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.5.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.5.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.5.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.5.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.5.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.5.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.5.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.6.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.6.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.6.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.6.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.6.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.6.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.6.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.6.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.6.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.6.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.7.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.7.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.7.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.7.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.7.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.7.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.7.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.7.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.7.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.7.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.8.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.8.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.8.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.8.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.8.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.8.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.8.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.8.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.8.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.8.output.dense.weight": [
+      768,
+      3072
+    ],
+    "bert.encoder.layer.9.attention.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.attention.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.9.attention.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.attention.output.dense.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.9.attention.self.key.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.attention.self.key.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.9.attention.self.query.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.attention.self.query.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.9.attention.self.value.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.attention.self.value.weight": [
+      768,
+      768
+    ],
+    "bert.encoder.layer.9.intermediate.dense.bias": [
+      3072
+    ],
+    "bert.encoder.layer.9.intermediate.dense.weight": [
+      3072,
+      768
+    ],
+    "bert.encoder.layer.9.output.LayerNorm.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.output.LayerNorm.weight": [
+      768
+    ],
+    "bert.encoder.layer.9.output.dense.bias": [
+      768
+    ],
+    "bert.encoder.layer.9.output.dense.weight": [
+      768,
+      3072
+    ],
+    "classifier.bias": [
+      9
+    ],
+    "classifier.weight": [
+      9,
+      768
+    ]
+  },
+  "model_metadata": {
+    "format": "pt"
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 125,
+      "sha256": "afe2e5bc93905689e1c8fd608371df2c1b342dc5b2d0a4191714688b345b4269"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 127,
+      "sha256": "cbfcaf03e6c566a25c4bbd36ce85e8c67f3e6331c9441ceb5f95e4e869a6e63d"
+    },
+    {
+      "path": "app.py",
+      "bytes": 5648,
+      "sha256": "5cbd6ef3f9fb996313ad743e8f96a0b5f2e7630cb86e22d51a3367173213c9da"
+    },
+    {
+      "path": "bert.ipynb",
+      "bytes": 2991879,
+      "sha256": "6f528cc326c6b4d50f3ae8487dda30ecdfd8dc33bfeb1e9be114524a8dcb2346"
+    },
+    {
+      "path": "bert_product_model/config.json",
+      "bytes": 1041,
+      "sha256": "bf6be6cb22ae77eb231a120642d3118bff1360bf10fad85f390499a58d9bdda8"
+    },
+    {
+      "path": "bert_product_model/model.safetensors",
+      "bytes": 435617620,
+      "sha256": "4b5d506e5f574520e0e078b4474b0ad4eaf9b92d2e2ddccc788195a07711aecd"
+    },
+    {
+      "path": "bert_product_model/special_tokens_map.json",
+      "bytes": 125,
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "path": "bert_product_model/tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+    },
+    {
+      "path": "bert_product_model/tokenizer_config.json",
+      "bytes": 1221,
+      "sha256": "1f92c93d2e31974acffab86d48e80a9357acb18c68346c5472ef1d12c72d5d77"
+    },
+    {
+      "path": "bert_product_model/vocab.txt",
+      "bytes": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "path": "data.csv",
+      "bytes": 38814965,
+      "sha256": "b896acede72e2ae9ab8f9acfc655f191d47477a99066490bd35b5f1a6283bb10"
+    },
+    {
+      "path": "data_labeled.txt",
+      "bytes": 3231733,
+      "sha256": "aa5a36123f323474d768bb6415976132faf9f98a88ddbb167147a738a74a2941"
+    },
+    {
+      "path": "data_preprocessed.pkl",
+      "bytes": 28699747,
+      "sha256": "ab165c7dfbfae826dee5728ea2e5832fc32a1c9aebddf2287ac77ae0c0e1943f"
+    },
+    {
+      "path": "docs/legacy/app_2025.py",
+      "bytes": 5022,
+      "sha256": "c92d8a29f3827b1c02e95d3afd2c5a78a02239fd7505f83ea3ef8f29c349c3ab"
+    },
+    {
+      "path": "docs/legacy/index_2025.html",
+      "bytes": 4108,
+      "sha256": "107300bfee17e0e09e43ebc8af8ecd75e80760c55416968f317ae0050761e5e8"
+    },
+    {
+      "path": "eda.ipynb",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "entityextract/__init__.py",
+      "bytes": 235,
+      "sha256": "6696eb110ef8785edcd60fb4850fd91da5a0b7ff15fb221544dadfb42d7e4ed2"
+    },
+    {
+      "path": "entityextract/__main__.py",
+      "bytes": 34,
+      "sha256": "e5f952ab2b5fba9221cfe9dba83a223b4cdd9e069ab65bd09d656c5764bfecad"
+    },
+    {
+      "path": "entityextract/data.py",
+      "bytes": 6005,
+      "sha256": "b5e1b1b9394c3ef56f78c30018a1d68006b37da06b77fb4c4d45c941d3ab7f32"
+    },
+    {
+      "path": "entityextract/inference.py",
+      "bytes": 4337,
+      "sha256": "fb6b0e8a2e07cb989e24fd690ff11dfe0e6f89436bac372bb34dbaf205619708"
+    },
+    {
+      "path": "entityextract/metrics.py",
+      "bytes": 2462,
+      "sha256": "a8e8ec1a8c9f2fe4aaffe56fd0a57c0b0698d790c80c305ac06c0065d89bb473"
+    },
+    {
+      "path": "entityextract/recommendation.py",
+      "bytes": 2987,
+      "sha256": "de142318951c04e4f7da53ea50d91cb0330c652e18547afafbfbf60826b403c3"
+    },
+    {
+      "path": "entityextract/workflow.py",
+      "bytes": 16881,
+      "sha256": "28c5767056ec818a3365dd0ff55edd25765b7f79633e1951431bf90b6c0bb0db"
+    },
+    {
+      "path": "label_map.pt",
+      "bytes": 1000,
+      "sha256": "c0b83c5109364fbdd7c8db712c5af51c0571c121c7ee51986c746c2406742eae"
+    },
+    {
+      "path": "products_labeled.csv",
+      "bytes": 39826463,
+      "sha256": "b1b5b693ba1e26786d729cce1b6a82566de90afb4a5fdf03c066a5cd97b2eb96"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 465,
+      "sha256": "a5a5da3348903805586b59a36216f3c3cf16df1d72f22e63c937c08bc50dc0b7"
+    },
+    {
+      "path": "templates/index.html",
+      "bytes": 4178,
+      "sha256": "49519ef07b5ac55a64e4adc37328b50249d7f53ac54a5bb55f0cc83c0b59cc55"
+    },
+    {
+      "path": "tests/test_core.py",
+      "bytes": 4539,
+      "sha256": "0306605f1b115d986a46c2397a8151c54b5d7051c0e9bc13d9046620f0b91494"
+    },
+    {
+      "path": "tests/test_model_integration.py",
+      "bytes": 1191,
+      "sha256": "4259945f5e1b95408e5fdace6005e793b6ced10201d4bf5a310ba5c575987d23"
+    }
+  ],
+  "notebook_cells": 12,
+  "original_eda_bytes": 0,
+  "limitations": [
+    "Legacy references are automatically labeled and O tokens were removed.",
+    "Historical splits are not guaranteed duplicate-free.",
+    "Model performance on full descriptions or human-annotated gold is not established."
+  ]
+}

@@ -1,0 +1,10 @@
+# Exact top-level environment validated on Windows / Python 3.13.2, CPU.
+Flask==3.1.1
+pandas==2.2.3
+numpy==2.2.4
+scikit-learn==1.6.1
+torch==2.6.0
+transformers==5.18.0
+tokenizers==0.23.2
+safetensors==0.8.0
+matplotlib==3.10.1

@@ -1,0 +1,259 @@
+{
+  "examples": 3000,
+  "evaluated_tokens": 67494,
+  "entity_micro": {
+    "precision": 0.8517846339987901,
+    "recall": 0.9703652653342523,
+    "f1": 0.9072164948453608,
+    "tp": 7040,
+    "fp": 1225,
+    "fn": 215,
+    "support": 7255
+  },
+  "entity_macro_f1": 0.8588469934163017,
+  "per_attribute": {
+    "Color": {
+      "precision": 0.8802604045570798,
+      "recall": 0.9732647814910026,
+      "f1": 0.9244292516176291,
+      "tp": 3786,
+      "fp": 515,
+      "fn": 104,
+      "support": 3890
+    },
+    "Material": {
+      "precision": 0.866304347826087,
+      "recall": 0.9633360193392425,
+      "f1": 0.9122472338801983,
+      "tp": 2391,
+      "fp": 369,
+      "fn": 91,
+      "support": 2482
+    },
+    "Dimensions": {
+      "precision": 0.620253164556962,
+      "recall": 0.98989898989899,
+      "f1": 0.7626459143968872,
+      "tp": 98,
+      "fp": 60,
+      "fn": 1,
+      "support": 99
+    },
+    "Weight": {
+      "precision": 0.731357552581262,
+      "recall": 0.9757653061224489,
+      "f1": 0.836065573770492,
+      "tp": 765,
+      "fp": 281,
+      "fn": 19,
+      "support": 784
+    }
+  },
+  "invalid_prediction_I_tags": 263,
+  "token_report": {
+    "B-Color": {
+      "precision": 0.8946756568239944,
+      "recall": 0.9892030848329049,
+      "f1-score": 0.9395678183371994,
+      "support": 3890.0
+    },
+    "B-Dimensions": {
+      "precision": 0.6265822784810127,
+      "recall": 1.0,
+      "f1-score": 0.7704280155642024,
+      "support": 99.0
+    },
+    "B-Material": {
+      "precision": 0.888768115942029,
+      "recall": 0.9883158742949234,
+      "f1-score": 0.935902327355971,
+      "support": 2482.0
+    },
+    "B-Weight": {
+      "precision": 0.7409177820267686,
+      "recall": 0.9885204081632653,
+      "f1-score": 0.8469945355191257,
+      "support": 784.0
+    },
+    "I-Color": {
+      "precision": 0.8827852998065764,
+      "recall": 0.9727195225916454,
+      "f1-score": 0.9255729061042385,
+      "support": 2346.0
+    },
+    "I-Dimensions": {
+      "precision": 0.6351351351351351,
+      "recall": 1.0,
+      "f1-score": 0.7768595041322314,
+      "support": 282.0
+    },
+    "I-Material": {
+      "precision": 0.8354616895874263,
+      "recall": 0.9872315728380732,
+      "f1-score": 0.9050279329608939,
+      "support": 1723.0
+    },
+    "I-Weight": {
+      "precision": 0.7593293672255274,
+      "recall": 0.997867803837953,
+      "f1-score": 0.8624078624078624,
+      "support": 1407.0
+    },
+    "O": {
+      "precision": 0.9982796521074262,
+      "recall": 0.9585910684458803,
+      "f1-score": 0.9780328851267838,
+      "support": 54481.0
+    },
+    "accuracy": 0.9640708803745518,
+    "macro avg": {
+      "precision": 0.8068816641262107,
+      "recall": 0.9869388150005162,
+      "f1-score": 0.8823104208342787,
+      "support": 67494.0
+    },
+    "weighted avg": {
+      "precision": 0.9700772663385862,
+      "recall": 0.9640708803745518,
+      "f1-score": 0.9655020224404347,
+      "support": 67494.0
+    }
+  },
+  "confusion_labels": [
+    "B-Color",
+    "B-Dimensions",
+    "B-Material",
+    "B-Weight",
+    "I-Color",
+    "I-Dimensions",
+    "I-Material",
+    "I-Weight",
+    "O"
+  ],
+  "confusion_matrix": [
+    [
+      3848,
+      0,
+      1,
+      0,
+      17,
+      0,
+      2,
+      2,
+      20
+    ],
+    [
+      0,
+      99,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      5,
+      0,
+      2453,
+      0,
+      1,
+      0,
+      7,
+      0,
+      16
+    ],
+    [
+      0,
+      0,
+      0,
+      775,
+      0,
+      0,
+      0,
+      7,
+      2
+    ],
+    [
+      16,
+      0,
+      0,
+      0,
+      2282,
+      0,
+      5,
+      0,
+      43
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      282,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      9,
+      0,
+      4,
+      0,
+      1701,
+      0,
+      8
+    ],
+    [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1404,
+      1
+    ],
+    [
+      430,
+      59,
+      297,
+      270,
+      281,
+      162,
+      321,
+      436,
+      52225
+    ]
+  ],
+  "entity_definition": "Exact type and token start/end positions, strict IOB2; O excluded from entity scores",
+  "protocol": "legacy",
+  "disclaimer": "Historical random split on shortened, automatically labeled sequences; duplicate leakage may exist. Entity boundaries are subword positions, not independently human-annotated gold.",
+  "seconds": 104.72689270000046,
+  "dataset_sha256": "ab165c7dfbfae826dee5728ea2e5832fc32a1c9aebddf2287ac77ae0c0e1943f",
+  "checkpoint_sha256": "4b5d506e5f574520e0e078b4474b0ad4eaf9b92d2e2ddccc788195a07711aecd",
+  "seed": 42,
+  "max_length": 128,
+  "device": "cpu",
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cuda_available": false,
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "5.18.0",
+      "Flask": "3.1.1",
+      "pandas": "2.2.3",
+      "numpy": "2.2.4",
+      "scikit-learn": "1.6.1",
+      "matplotlib": "3.10.1",
+      "safetensors": "0.8.0",
+      "pytest": "8.4.2"
+    }
+  }
+}

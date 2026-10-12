@@ -1,0 +1,18 @@
+[
+  {
+    "cell": 6,
+    "text": "\nDataset đã sẵn sàng.\nTổng số mẫu: 19994\nLabel map: {'B-Color': 0, 'B-Dimensions': 1, 'B-Material': 2, 'B-Weight': 3, 'I-Color': 4, 'I-Dimensions': 5, 'I-Material': 6, 'I-Weight': 7, 'O': 8}\n"
+  },
+  {
+    "cell": 9,
+    "text": "Batch keys: dict_keys(['input_ids', 'attention_mask', 'labels'])\nInput IDs shape: torch.Size([8, 128])\nAttention Mask shape: torch.Size([8, 128])\nLabels shape: torch.Size([8, 128])\nDataLoader đã sẵn sàng.\nTrain size: 13995 | Val: 2999 | Test: 3000\n"
+  },
+  {
+    "cell": 10,
+    "text": "Bắt đầu huấn luyện...\n\nEpoch 1/3\nTrain Loss: 0.2202\nVal Loss: 0.1499\nPrecision: 0.9502 | Recall: 0.9075 | F1: 0.9222\n\n→ Báo cáo theo từng nhãn:\n           Label  precision    recall  f1-score\n0        B-Color   0.864930  0.974391  0.916404\n1   B-Dimensions   0.406897  0.936508  0.567308\n2     B-Material   0.787929  0.973116  0.870785\n3       B-Weight   0.723232  0.939633  0.817352\n4        I-Color   0.715533  0.942880  0.813623\n5   I-Dimensions   0.142207  1.000000  0.249004\n6     I-Material   0.628771  0.976014  0.764824\n7       I-Weight   0.806008  0.952663  0.873220\n8              O   0.998288  0.893525  0.943006\n9       accuracy   0.907455  0.907455  0.907455\n10     macro avg   0.674866  0.954303  0.757281\n11  weighted avg   0.950223  0.907455  0.922181\n\nEpoch 2/3\nTrain Loss: 0.0725\nVal Loss: 0.0849\nPrecision: 0.9529 | Recall: 0.9370 | F1: 0.9407\n\n→ Báo cáo theo từng nhãn:\n           Label  precision    recall  f1-score\n0        B-Color   0.859474  0.982347  0.916812\n1   B-Dimensions   0.594340  1.000000  0.745562\n2     B-Material   0.768584  0.968635  0.857091\n3       B-Weight   0.777549  0.990814  0.871321\n4        I-Color   0.649395  0.979373  0.780958\n5   I-Dimensions   0.744048  1.000000  0.853242\n6     I-Material   0.703100  0.984580  0.820366\n7       I-Weight   0.771727  0.985207  0.865497\n8              O   0.999056  0.926281  0.961293\n9       accuracy   0.937003  0.937003  0.937003\n10     macro avg   0.763030  0.979693  0.852460\n11  weighted avg   0.952869  0.937003  0.940736\n\nEpoch 3/3\nTrain Loss: 0.0455\nVal Loss: 0.0704\nPrecision: 0.9682 | Recall: 0.9620 | F1: 0.9635\n\n→ Báo cáo theo từng nhãn:\n           Label  precision    recall  f1-score\n0        B-Color   0.892953  0.989309  0.938665\n1   B-Dimensions   0.714286  0.992063  0.830565\n2     B-Material   0.880744  0.983707  0.929382\n3       B-Weight   0.725698  0.989501  0.837313\n4        I-Color   0.865113  0.971837  0.915375\n5   I-Dimensions   0.729941  0.994667  0.841986\n6     I-Material   0.815098  0.974300  0.887617\n7       I-Weight   0.744740  0.994822  0.851805\n8              O   0.998401  0.956703  0.977107\n9       accuracy   0.962005  0.962005  0.962005\n10     macro avg   0.818553  0.982990  0.889979\n11  weighted avg   0.968235  0.962005  0.963482\n"
+  },
+  {
+    "cell": 10,
+    "text": "\nĐánh giá trên tập Test:\nTest Loss: 0.0583\nPrecision: 0.9701 | Recall: 0.9641 | F1: 0.9655\n\n→ Báo cáo theo từng nhãn (Test):\n           Label  precision    recall  f1-score\n0        B-Color   0.894676  0.989203  0.939568\n1   B-Dimensions   0.626582  1.000000  0.770428\n2     B-Material   0.888768  0.988316  0.935902\n3       B-Weight   0.740918  0.988520  0.846995\n4        I-Color   0.882785  0.972720  0.925573\n5   I-Dimensions   0.635135  1.000000  0.776860\n6     I-Material   0.835462  0.987232  0.905028\n7       I-Weight   0.759329  0.997868  0.862408\n8              O   0.998280  0.958591  0.978033\n9       accuracy   0.964071  0.964071  0.964071\n10     macro avg   0.806882  0.986939  0.882310\n11  weighted avg   0.970077  0.964071  0.965502\n\nMô hình đã được lưu vào thư mục: bert_product_model\n"
+  }
+]

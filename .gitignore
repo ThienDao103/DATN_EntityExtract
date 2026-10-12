@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+artifacts/prepared/
+artifacts/smoke-model/
+artifacts/trained-model/
+artifacts/test-work/
+*.log

@@ -1,0 +1,259 @@
+{
+  "examples": 8,
+  "evaluated_tokens": 268,
+  "entity_micro": {
+    "precision": 0.84375,
+    "recall": 1.0,
+    "f1": 0.9152542372881356,
+    "tp": 27,
+    "fp": 5,
+    "fn": 0,
+    "support": 27
+  },
+  "entity_macro_f1": 0.8465099715099715,
+  "per_attribute": {
+    "Color": {
+      "precision": 0.9285714285714286,
+      "recall": 1.0,
+      "f1": 0.962962962962963,
+      "tp": 13,
+      "fp": 1,
+      "fn": 0,
+      "support": 13
+    },
+    "Material": {
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "f1": 0.923076923076923,
+      "tp": 12,
+      "fp": 2,
+      "fn": 0,
+      "support": 12
+    },
+    "Dimensions": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "support": 1
+    },
+    "Weight": {
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "tp": 1,
+      "fp": 2,
+      "fn": 0,
+      "support": 1
+    }
+  },
+  "invalid_prediction_I_tags": 1,
+  "token_report": {
+    "B-Color": {
+      "precision": 0.9285714285714286,
+      "recall": 1.0,
+      "f1-score": 0.9629629629629629,
+      "support": 13.0
+    },
+    "B-Dimensions": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "B-Material": {
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "f1-score": 0.9230769230769231,
+      "support": 12.0
+    },
+    "B-Weight": {
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1-score": 0.5,
+      "support": 1.0
+    },
+    "I-Color": {
+      "precision": 0.9,
+      "recall": 1.0,
+      "f1-score": 0.9473684210526315,
+      "support": 9.0
+    },
+    "I-Dimensions": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "I-Material": {
+      "precision": 0.9166666666666666,
+      "recall": 1.0,
+      "f1-score": 0.9565217391304348,
+      "support": 11.0
+    },
+    "I-Weight": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1-score": 0.3333333333333333,
+      "support": 1.0
+    },
+    "O": {
+      "precision": 1.0,
+      "recall": 0.9490740740740741,
+      "f1-score": 0.9738717339667459,
+      "support": 216.0
+    },
+    "accuracy": 0.9589552238805971,
+    "macro avg": {
+      "precision": 0.7928571428571429,
+      "recall": 0.9943415637860082,
+      "f1-score": 0.8441261237247812,
+      "support": 268.0
+    },
+    "weighted avg": {
+      "precision": 0.9778873489694385,
+      "recall": 0.9589552238805971,
+      "f1-score": 0.9657952402444048,
+      "support": 268.0
+    }
+  },
+  "confusion_labels": [
+    "B-Color",
+    "B-Dimensions",
+    "B-Material",
+    "B-Weight",
+    "I-Color",
+    "I-Dimensions",
+    "I-Material",
+    "I-Weight",
+    "O"
+  ],
+  "confusion_matrix": [
+    [
+      13,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      12,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      9,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      11,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      2,
+      2,
+      1,
+      0,
+      1,
+      4,
+      205
+    ]
+  ],
+  "entity_definition": "Exact type and token start/end positions, strict IOB2; O excluded from entity scores",
+  "protocol": "legacy",
+  "disclaimer": "Historical random split on shortened, automatically labeled sequences; duplicate leakage may exist. Entity boundaries are subword positions, not independently human-annotated gold.",
+  "seconds": 0.39538249999895925,
+  "dataset_sha256": "ab165c7dfbfae826dee5728ea2e5832fc32a1c9aebddf2287ac77ae0c0e1943f",
+  "checkpoint_sha256": "4b5d506e5f574520e0e078b4474b0ad4eaf9b92d2e2ddccc788195a07711aecd",
+  "seed": 42,
+  "max_length": 128,
+  "device": "cpu",
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cuda_available": false,
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "5.18.0",
+      "Flask": "3.1.1",
+      "pandas": "2.2.3",
+      "numpy": "2.2.4",
+      "scikit-learn": "1.6.1",
+      "matplotlib": "3.10.1",
+      "safetensors": "0.8.0",
+      "pytest": "8.4.2"
+    }
+  }
+}

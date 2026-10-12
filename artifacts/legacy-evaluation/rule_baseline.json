@@ -1,0 +1,236 @@
+{
+  "examples": 3000,
+  "evaluated_tokens": 67494,
+  "entity_micro": {
+    "precision": 0.816126013724267,
+    "recall": 0.7212956581667815,
+    "f1": 0.7657862003365772,
+    "tp": 5233,
+    "fp": 1179,
+    "fn": 2022,
+    "support": 7255
+  },
+  "entity_macro_f1": 0.6265041237821165,
+  "per_attribute": {
+    "Color": {
+      "precision": 0.7866736897550698,
+      "recall": 0.767866323907455,
+      "f1": 0.7771562378040849,
+      "tp": 2987,
+      "fp": 810,
+      "fn": 903,
+      "support": 3890
+    },
+    "Material": {
+      "precision": 0.8158730158730159,
+      "recall": 0.621273166800967,
+      "f1": 0.7053979871912168,
+      "tp": 1542,
+      "fp": 348,
+      "fn": 940,
+      "support": 2482
+    },
+    "Dimensions": {
+      "precision": 0.3333333333333333,
+      "recall": 0.050505050505050504,
+      "f1": 0.08771929824561404,
+      "tp": 5,
+      "fp": 10,
+      "fn": 94,
+      "support": 99
+    },
+    "Weight": {
+      "precision": 0.9845070422535211,
+      "recall": 0.8915816326530612,
+      "f1": 0.9357429718875502,
+      "tp": 699,
+      "fp": 11,
+      "fn": 85,
+      "support": 784
+    }
+  },
+  "invalid_prediction_I_tags": 0,
+  "token_report": {
+    "B-Color": {
+      "precision": 0.8469844614169081,
+      "recall": 0.8267352185089974,
+      "f1-score": 0.8367373487706518,
+      "support": 3890.0
+    },
+    "B-Dimensions": {
+      "precision": 0.3333333333333333,
+      "recall": 0.050505050505050504,
+      "f1-score": 0.08771929824561403,
+      "support": 99.0
+    },
+    "B-Material": {
+      "precision": 0.8359788359788359,
+      "recall": 0.636583400483481,
+      "f1-score": 0.7227813357731016,
+      "support": 2482.0
+    },
+    "B-Weight": {
+      "precision": 0.9859154929577465,
+      "recall": 0.8928571428571429,
+      "f1-score": 0.9370816599732262,
+      "support": 784.0
+    },
+    "I-Color": {
+      "precision": 0.9524207011686143,
+      "recall": 0.4863597612958227,
+      "f1-score": 0.6439051918735892,
+      "support": 2346.0
+    },
+    "I-Dimensions": {
+      "precision": 0.4444444444444444,
+      "recall": 0.14184397163120568,
+      "f1-score": 0.21505376344086022,
+      "support": 282.0
+    },
+    "I-Material": {
+      "precision": 0.9319196428571429,
+      "recall": 0.4846198491004063,
+      "f1-score": 0.6376479572355861,
+      "support": 1723.0
+    },
+    "I-Weight": {
+      "precision": 0.9877582249426167,
+      "recall": 0.9175550817341862,
+      "f1-score": 0.9513633014001474,
+      "support": 1407.0
+    },
+    "O": {
+      "precision": 0.9340174680071539,
+      "recall": 0.9873350342321177,
+      "f1-score": 0.9599364694125205,
+      "support": 54481.0
+    },
+    "accuracy": 0.9274750348179097,
+    "macro avg": {
+      "precision": 0.805863622789644,
+      "recall": 0.6027105011498234,
+      "f1-score": 0.6658029251250329,
+      "support": 67494.0
+    },
+    "weighted avg": {
+      "precision": 0.9247787671822665,
+      "recall": 0.9274750348179097,
+      "f1-score": 0.9200668047667677,
+      "support": 67494.0
+    }
+  },
+  "confusion_labels": [
+    "B-Color",
+    "B-Dimensions",
+    "B-Material",
+    "B-Weight",
+    "I-Color",
+    "I-Dimensions",
+    "I-Material",
+    "I-Weight",
+    "O"
+  ],
+  "confusion_matrix": [
+    [
+      3216,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      674
+    ],
+    [
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      94
+    ],
+    [
+      6,
+      0,
+      1580,
+      0,
+      0,
+      0,
+      0,
+      0,
+      896
+    ],
+    [
+      0,
+      0,
+      0,
+      700,
+      0,
+      0,
+      0,
+      0,
+      84
+    ],
+    [
+      300,
+      0,
+      0,
+      0,
+      1141,
+      0,
+      0,
+      0,
+      905
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      40,
+      0,
+      0,
+      242
+    ],
+    [
+      0,
+      0,
+      95,
+      0,
+      0,
+      0,
+      835,
+      0,
+      793
+    ],
+    [
+      3,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1291,
+      112
+    ],
+    [
+      272,
+      10,
+      215,
+      9,
+      57,
+      50,
+      61,
+      16,
+      53791
+    ]
+  ],
+  "entity_definition": "Exact type and token start/end positions, strict IOB2; O excluded from entity scores",
+  "disclaimer": "Rule extraction on the same selected inputs; references are weak labels. Not an independent gold benchmark."
+}

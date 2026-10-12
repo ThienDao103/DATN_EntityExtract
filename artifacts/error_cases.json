@@ -1,0 +1,158 @@
+[
+  {
+    "legacy_row": 7936,
+    "attribute": "Color",
+    "shortened_input": "casual matte Claw adorbable hair clutchers 5 Price Rs. matte finish Plastic for Everyday hair Claw Clip keep in you want cute colour range grips hair with simplicity Takspin 5 Multicolor Design Matte finish plastic Sales clutcher Matte finish plastic",
+    "false_positive_subword_spans": [
+      [
+        "Color",
+        39,
+        41
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 7936,
+    "attribute": "Material",
+    "shortened_input": "casual matte Claw adorbable hair clutchers 5 Price Rs. matte finish Plastic for Everyday hair Claw Clip keep in you want cute colour range grips hair with simplicity Takspin 5 Multicolor Design Matte finish plastic Sales clutcher Matte finish plastic",
+    "false_positive_subword_spans": [
+      [
+        "Material",
+        1,
+        3
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 15813,
+    "attribute": "Weight",
+    "shortened_input": "Zovi 1,449 a everybody, exclusive Brown casual side. Leather and a Leather may vary size.Disclaimer may to material the designed are. Brown zipper on the sole. Leather upper and checkered for stylish Leather Weight shoe vary on color may due the material lighting Material Leather. Brown",
+    "false_positive_subword_spans": [
+      [
+        "Weight",
+        3,
+        7
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 3050,
+    "attribute": "Weight",
+    "shortened_input": "Occasion Black Bellies 399 you fine comfort. your but designed going look this pair season this make out this Bootwale Occasion 350 - vary Height 1.5 inch Black Bellies Material 350 per Shoe - the vary Black",
+    "false_positive_subword_spans": [
+      [
+        "Weight",
+        26,
+        27
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 18928,
+    "attribute": "Material",
+    "shortened_input": "Mens White Shirt Western Cotton ColorWhite Contents White Zobello has ultimate dandy contrast and look this been for that and Zobello Casual White Shirt General Occasion Casual Half Brand Slim Details Code machine at dry warm not in",
+    "false_positive_subword_spans": [
+      [
+        "Material",
+        5,
+        6
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 4768,
+    "attribute": "Material",
+    "shortened_input": "Silk delivery. Genuine Brown",
+    "false_positive_subword_spans": [
+      [
+        "Material",
+        0,
+        1
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 5026,
+    "attribute": "Color",
+    "shortened_input": "- Clear Genuine Guarantee. Clear",
+    "false_positive_subword_spans": [
+      [
+        "Color",
+        0,
+        1
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 884,
+    "attribute": "Color",
+    "shortened_input": "Ishin 499 Soft Western . in Georgette Soft",
+    "false_positive_subword_spans": [
+      [
+        "Color",
+        10,
+        11
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 884,
+    "attribute": "Weight",
+    "shortened_input": "Ishin 499 Soft Western . in Georgette Soft",
+    "false_positive_subword_spans": [
+      [
+        "Weight",
+        2,
+        4
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 3289,
+    "attribute": "Dimensions",
+    "shortened_input": "German silver Zircon Toe Price fashion with classy rings and outfits and toed shoes.,Specifications German Number Jewellery Toe Model Women Color Gold Silver Diamond Diamond 6 g Height 45 mm Body Design Material Ring Additional Features 6 g. Alloy. Free",
+    "false_positive_subword_spans": [
+      [
+        "Dimensions",
+        34,
+        37
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 8144,
+    "attribute": "Dimensions",
+    "shortened_input": "Canvas Canvas inch x General Brand Canvas Theme Weight 2 kg 16 Width 1 Weight 2 kg",
+    "false_positive_subword_spans": [
+      [
+        "Dimensions",
+        12,
+        13
+      ]
+    ],
+    "false_negative_subword_spans": []
+  },
+  {
+    "legacy_row": 967,
+    "attribute": "Dimensions",
+    "shortened_input": "Features Ceramic Pack 1 Mug,AKUP Ceramic Price Ceramic you your with of ceramic 300ml Specifications Product - 9.5 cms, 8 Color Multi-Color Specialty Wash Remove to then with pattern tone product slightly that shown in image. in quality. co,Specifications of AKUP crazy-women Ceramic General Capacity Material Ceramic Freezer Diameter 8 mm 330 g Height mm the Sales 1 Ceramic. Weight 330 g",
+    "false_positive_subword_spans": [
+      [
+        "Dimensions",
+        66,
+        69
+      ]
+    ],
+    "false_negative_subword_spans": []
+  }
+]
